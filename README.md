@@ -20,6 +20,8 @@ Or add the following to your ```composer.json``` in the require section and then
 
 ## Usage
 
+### default
+
 ```php
 use Steein\Robots\Robots;
 use Steein\Robots\RobotsInterface;
@@ -42,6 +44,53 @@ Robots::getInstance()
     })->create(); // or render()
 
 ```
+
+### support laravel
+
+Once installed via Composer you need to add the service provider.
+Do this by adding the following to the 'providers' section of the application config ```(usually config/app.php)````:
+
+```php
+
+// config/app.php
+'providers' => [
+    ...
+    Steein\Robots\Laravel\RobotsServiceProvider::class,
+    ...
+];
+
+This package also comes with a facade, which provides an easy way to call the the class.
+
+```php
+// config/app.php
+'aliases' => [
+    ...
+    'Robots' => Steein\Robots\Laravel\RobotsFacade::class,
+    ...
+];
+```
+The quickest way to use Robots is to just setup a callback-style route for robots.txt in your ```/routes/web.php``` file.
+
+```php
+Route::get('robots.txt', function() {
+
+    $robots = RobotsFacade::host("www.steein.ru")
+        ->userAgent("*")
+        ->allow("one","two")
+        ->disallow("one","two","three")
+        ->each(function (RobotsInterface $robots) {
+            $robots->userAgent("Bind")
+                ->comment("Comment Bind")
+                ->spacer()
+                ->allow("testing");
+        })->render();
+
+
+    return Response::make($robots, 200, ['Content-Type' => 'text/plain']);
+});
+```
+
+
 
 ## Testing
 
