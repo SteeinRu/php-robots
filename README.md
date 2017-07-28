@@ -41,7 +41,7 @@ Robots::getInstance()
             ->allow("testing");
     })->create(); // or render()
 
-
+```
 
 ## Testing
 
