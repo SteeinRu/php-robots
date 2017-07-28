@@ -58,6 +58,7 @@ Do this by adding the following to the 'providers' section of the application co
     Steein\Robots\Laravel\RobotsServiceProvider::class,
     ...
 ];
+```
 
 This package also comes with a facade, which provides an easy way to call the the class.
 
@@ -69,6 +70,7 @@ This package also comes with a facade, which provides an easy way to call the th
     ...
 ];
 ```
+
 The quickest way to use Robots is to just setup a callback-style route for robots.txt in your ```routes/web.php``` file.
 
 ```php
