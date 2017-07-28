@@ -1,6 +1,7 @@
 # Generator robots.txt
 Generator robots.txt
 
+***The robots.txt*** file is a text file located in the root directory of the site, in which special instructions for search robots are written. These instructions may prohibit some sections or pages on the site from being indexed, indicate the correct "mirroring" of the domain, recommend the search robot to observe a certain time interval between downloading documents from the server, etc.
 
 ## Installation
 First, install the package via composer:
