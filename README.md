@@ -48,7 +48,7 @@ Robots::getInstance()
 ### support laravel
 
 Once installed via Composer you need to add the service provider.
-Do this by adding the following to the 'providers' section of the application config ```(usually config/app.php)````:
+Do this by adding the following to the 'providers' section of the application config ```(usually config/app.php)```:
 
 ```php
 
@@ -69,7 +69,7 @@ This package also comes with a facade, which provides an easy way to call the th
     ...
 ];
 ```
-The quickest way to use Robots is to just setup a callback-style route for robots.txt in your ```/routes/web.php``` file.
+The quickest way to use Robots is to just setup a callback-style route for robots.txt in your ```routes/web.php``` file.
 
 ```php
 Route::get('robots.txt', function() {
