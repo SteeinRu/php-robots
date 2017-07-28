@@ -20,7 +20,7 @@ class RobotsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('steein/robots');
+        //
     }
 
     /**
@@ -30,15 +30,8 @@ class RobotsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['robots'] = $this->app->share(function($app)
-        {
+        $this->app->singleton('robots', function () {
             return new Robots();
-        });
-
-        $this->app->booting(function()
-        {
-            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Robots', 'Steein\Robots\Laravel\RobotsFacade');
         });
     }
 
