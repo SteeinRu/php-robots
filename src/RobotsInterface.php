@@ -80,4 +80,11 @@ interface RobotsInterface
      * @return void
      */
     public function create(string $path = "robots.txt");
+
+    /***
+     * Output of generated data to the robots.txt.
+     *
+     * @return string
+     */
+    public function render() : string;
 }
